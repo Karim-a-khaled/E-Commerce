@@ -1,0 +1,30 @@
+using Microsoft.EntityFrameworkCore;
+using PartTwo.Data;
+using PartTwo.WebAPI.Extensions;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddServices();
+
+var app = builder.Build();
+
+app.AddUsings();
+app.MapControllers();
+
+//using var scope = app.Services.CreateScope();
+//var services = scope.ServiceProvider;
+//var context = services.GetRequiredService<StoreContext>();
+//var logger = services.GetRequiredService<ILogger<Program>>();
+
+//try
+//{
+//    await context.Database.MigrateAsync();
+//    await StoreContextSeed.SeedAsync(context);
+//}
+//catch(Exception ex)
+//{
+//    logger.LogError(ex, "An Error Occured During Migration");
+//}
+
+app.Run();
