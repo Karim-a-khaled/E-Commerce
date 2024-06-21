@@ -9,6 +9,7 @@ public static class ApplicationServiceExtensions
     {
         services.AddDbContext<StoreContext>(options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
         services.AddControllers();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
 
@@ -20,6 +21,7 @@ public static class ApplicationServiceExtensions
         app.UseSwagger();
         app.UseSwaggerUI();
         app.UseHttpsRedirection();
+        app.UseStaticFiles();
         app.UseAuthorization();
 
         return app;

@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using PartTwo.Data;
 using PartTwo.WebAPI.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +9,7 @@ var app = builder.Build();
 
 app.AddUsings();
 app.MapControllers();
+app.Run();
 
 //using var scope = app.Services.CreateScope();
 //var services = scope.ServiceProvider;
@@ -26,5 +25,3 @@ app.MapControllers();
 //{
 //    logger.LogError(ex, "An Error Occured During Migration");
 //}
-
-app.Run();
