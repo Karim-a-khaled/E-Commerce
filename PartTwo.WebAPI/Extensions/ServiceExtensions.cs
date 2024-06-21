@@ -9,6 +9,7 @@ public static class ServiceExtensions
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
         services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+        services.AddScoped<IBasketService,BasketService>();
 
         return services; 
     }

@@ -3,6 +3,8 @@ using PartTwo.WebAPI.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddRedisServices(builder.Configuration);
+builder.Services.AddExceptionServices();
 builder.Services.AddServices();
 
 var app = builder.Build();
