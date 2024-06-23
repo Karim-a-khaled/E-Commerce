@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PartTwo.Data;
 using PartTwo.Entities.Entities;
 using PartTwo.Services.Interfaces;
@@ -13,6 +14,13 @@ public class BuggyController : BaseController
     public BuggyController(StoreContext context)
     {
         _context = context;
+    }
+
+    [HttpGet("testauth")]
+    [Authorize]
+    public ActionResult<string> GetSecret()
+    {
+        return "Secret Stuff";
     }
 
     [HttpGet("not-found")]
